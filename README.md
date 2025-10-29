@@ -46,7 +46,7 @@ SQL_FILE_PATH=sql/capacity_rolling.sql
 
 ## Step 1: Create database and user
 
-Open PowerShell and connect as the `postgres` user:
+Open PowerShell and connect as the `postgres` user or superuser if different:
 
 ```powershell
 psql -U postgres
@@ -89,19 +89,7 @@ This creates the table `sailing_level_raw`.
 If you have a CSV file in a folder named `data`:
 
 ```sql
-\copy sailing_level_raw(
-  origin,
-  destination,
-  origin_port_code,
-  destination_port_code,
-  service_version_and_roundtrip_identifiers,
-  origin_service_version_and_master,
-  destination_service_version_and_master,
-  origin_at_utc,
-  offered_capacity_teu
-)
-FROM 'C:/path/to/your/data/sailing_level_raw.csv'
-WITH (FORMAT csv, HEADER true);
+\copy sailing_level_raw(origin,destination,origin_port_code,destination_port_code,service_version_and_roundtrip_identifiers,origin_service_version_and_master,destination_service_version_and_master,origin_at_utc,offered_capacity_teu) FROM 'C:/path/to/your/data/sailing_level_raw.csv' WITH (FORMAT csv, HEADER true);
 ```
 
 Check your data:
