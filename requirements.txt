@@ -1,64 +1,10 @@
-# ===========================
-# Python cache and compiled files
-# ===========================
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.pyc
+# Core application dependencies
+fastapi
+uvicorn
+psycopg[binary]
+python-dotenv
 
-# ===========================
-# Virtual environment
-# ===========================
-.venv/
-env/
-venv/
-
-# ===========================
-# Environment files
-# ===========================
-.env
-.env.*
-
-# ===========================
-# Coverage, test, and pytest cache
-# ===========================
-.coverage
-coverage.xml
-htmlcov/
-.pytest_cache/
-tests/__pycache__/
-*.pytest_cache
-*.coverage
-
-# ===========================
-# IDE and editor configs
-# ===========================
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# ===========================
-# macOS / Windows metadata
-# ===========================
-.DS_Store
-Thumbs.db
-
-# ===========================
-# Logs
-# ===========================
-*.log
-
-# ===========================
-# Build artifacts
-# ===========================
-dist/
-build/
-
-# ===========================
-# Temporary or backup files
-# ===========================
-*.tmp
-*.bak
-*.orig
+# Testing and coverage
+pytest
+pytest-cov
+httpx
