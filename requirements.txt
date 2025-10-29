@@ -1,4 +1,10 @@
+# Core application dependencies
 fastapi
 uvicorn
 psycopg[binary]
 python-dotenv
+
+# Testing and coverage
+pytest
+pytest-cov
+httpx
