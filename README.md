@@ -81,7 +81,7 @@ psql -U ship_eng -d shipping_capacity
 Then run the schema file to create the base table. Please update the below path accordingly:
 
 ```sql
-\i 'C:/path/to/project/sql/schema_design.sql'
+\i '<path_to_project>/sql/schema_design.sql'
 ```
 
 This creates the table `sailing_level_raw`.
@@ -93,7 +93,7 @@ This creates the table `sailing_level_raw`.
 If you have a CSV file in a folder named `data`. Please update the DB path accordingly:
 
 ```sql
-\copy sailing_level_raw(origin,destination,origin_port_code,destination_port_code,service_version_and_roundtrip_identifiers,origin_service_version_and_master,destination_service_version_and_master,origin_at_utc,offered_capacity_teu) FROM 'C:/path/to/your/data/sailing_level_raw.csv' WITH (FORMAT csv, HEADER true);
+\copy sailing_level_raw(origin,destination,origin_port_code,destination_port_code,service_version_and_roundtrip_identifiers,origin_service_version_and_master,destination_service_version_and_master,origin_at_utc,offered_capacity_teu) FROM '<path_to_dataset>/sailing_level_raw.csv' WITH (FORMAT csv, HEADER true);
 ```
 
 Check your data:
@@ -114,8 +114,8 @@ Please update the below path accordingly.
 From inside `psql`:
 
 ```sql
-\i 'C:/path/to/project/sql/rolling_average_views_and_fn.sql'
-\i 'C:/path/to/project/sql/sample_query.sql'
+\i '<path_to_project>/sql/rolling_average_views_and_fn.sql'
+\i '<path_to_project>/sql/sample_query.sql'
 ```
 
 If you see messages such as:
@@ -138,7 +138,7 @@ You can verify that everything loaded correctly:
 
 ## Step 5: Run the API
 
-Create a virtual environment and install dependencies:
+Create a virtual environment and install dependencies from root directory:
 
 ```powershell
 python -m venv .venv
@@ -146,7 +146,7 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
-Start the API server:
+Start the API server from root directory:
 
 ```powershell
 python -m uvicorn api.main:app --reload
@@ -213,7 +213,7 @@ tests/test_api.py::test_weeks_between_function PASSED
 
 ### Run with coverage report
 
-You can also check code coverage:
+You can also check code coverage from root level:
 
 ```bash
 python -m pytest --cov=api --cov-report=term-missing
